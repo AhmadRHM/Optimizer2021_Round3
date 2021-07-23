@@ -41,8 +41,10 @@
 <div dir = "rtl">
  همانطور که در بالاتر نیز گفته شد، با کمک بردار 
  v<sup>norm</sup>
- مساله زیر را شبیه به مساله دور دوم ساختیم که معادل با مساله اصلی است
+ مساله زیر را شبیه به مساله دور دوم ساختیم که معادل با مساله اصلی است  
+  
 ![l0_problem](https://github.com/AhmadRHM/Optimizer2021_Round3/blob/main/images/translation_to_round2.png)  
+  
   مانند دور دوم، ابتدا نرم l0 را با نرم l1 تخمین زدیم. از آنجا که درایه‌های
   v<sup>norm</sup>
   نامنفی هستند، نرم l1 آن برابر با جمع درایه‌های آن می‌شود و به این ترتیب مساله زیر به شکل تقریبی از مساله اصلی به‌دست می‌آید.
@@ -51,12 +53,14 @@
   مانند دور دوم، بعد از حل این مساله با استفاده از solver های Julia، به صورت گام به گام نتیجه را بهبود بخشیدیم. به این منظور، در هر گام با استفاده از نتایج گام قبل (و در گام اول با استفاده از نتایج تخمین l1 مساله)، وزن wi را به شکل زیر تولید کردیم:  
   ![wi_definition](https://github.com/AhmadRHM/Optimizer2021_Round3/blob/main/images/definition_w.png)  
   با استفاده از این وزن‌ها، مساله زیر را تعریف کرده و با حل آن به نتایج بهتری دست پیدا کردیم:  
-  ![iteration_method_definition](https://github.com/AhmadRHM/Optimizer2021_Round2/blob/main/images/iteration_problem.png)   
+  ![iteration_method_definition](https://github.com/AhmadRHM/Optimizer2021_Round3/blob/main/images/iteration_problem.png)   
   ایده‌ی پشت این روش نیز کاملا مشابه این روش در دور دوم است. تنها تفاوت این روش با روش دور دوم در این است که به دلیل این که مقادیر بردار
   v<sup>norm</sup>
-  نامنفی هستند، تابع sgn حذف شده چون همیشه مقدار ۱ را به ما می‌دهد و به دلیل مشابه قید نامنفی بودن v<sup>norm</sup> نیز حذف شده است.
+  نامنفی هستند، تابع sgn حذف شده چون همیشه مقدار ۱ را به ما می‌دهد و به دلیل مشابه قید نامنفی بودن v<sup>norm</sup> نیز حذف شده است. 
+  برای تعریف مساله MILP نیاز به بردار M داریم که درایه iام آن ماکسیمم قدر مطلق مقداری است که یک درایه در سطر iام V ممکن است بگیرد. به عبارت دیگر M به شکل زیر تعریف می‌شود:  
+  ![M](https://github.com/AhmadRHM/Optimizer2021_Round3/blob/main/images/definition_M.png)  
   در نهایت، مساله MILP زیر حل شده و جواب مساله را به ما می‌دهد:  
-![equation6](https://github.com/AhmadRHM/Optimizer2021_Round2/blob/main/images/MILP_problem.png)  
+![equation6](https://github.com/AhmadRHM/Optimizer2021_Round3/blob/main/images/MILP_problem.png)  
 </div>
 
 ## ⛓️ محدودیت‌ها <a name = "limitations"></a>
